@@ -1,15 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Barlow, Barlow_Condensed, Bellefair } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const barlow = Barlow({
+  weight: ["400"],
   subsets: ["latin"],
+  display: "swap",
+  variable: "--font-barlow",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const barlow_condensed = Barlow_Condensed({
+  weight: ["400"],
   subsets: ["latin"],
+  display: "swap",
+  variable: "--font-barlow-condensed",
+});
+
+const bellefair = Bellefair({
+  weight: ["400"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-bellefair",
 });
 
 export const metadata: Metadata = {
@@ -23,12 +34,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html
+      lang="en"
+      className={`${barlow.variable} ${barlow_condensed.variable} ${bellefair.variable} antialiased`}
+    >
+      <body>{children}</body>
     </html>
   );
 }
